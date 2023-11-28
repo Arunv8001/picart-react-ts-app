@@ -1,10 +1,11 @@
 import HeaderComponent from "../../Components/HeaderComponent/HeaderComponent";
+import UserTable from "./UserTable";
 
 const Users = () => {
   return (
     <>
       <HeaderComponent />
-      <h1>User List Component</h1>;
+      <UserTable />
     </>
   );
 };
