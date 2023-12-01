@@ -63,3 +63,32 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+.page-label {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: left;
+  font-family: "Roboto";
+  padding: 20px 0;
+}
+
+.container {
+  position: relative;
+  width: 80vw;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 45px;
+  
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .container {
+    width: 90vw;
+  }
+  .table-block {
+    overflow-x: scroll;
+  }
+  }
+  

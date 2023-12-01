@@ -1,11 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
+import { UserContext } from "./../UserContext";
 import cloneDeep from "lodash/cloneDeep";
 import throttle from "lodash/throttle";
 import Pagination from "rc-pagination";
+import { useNavigate } from "react-router-dom";
 import "rc-pagination/assets/index.css";
 import "./UserTable.css";
 
-import { allData } from "../../Utils/data";
+import { allData } from "../../../Utils/data";
 
 const tableHead = {
   name: "Name",
@@ -22,17 +24,21 @@ interface User {
 }
 
 const UserTable = () => {
+  const { tableValue, setTableValue } = useContext(UserContext);
   const countPerPage = 10;
-  const [value, setValue] = useState("");
-  const [sorting, setSorting] = useState({ field: "name", ascending: true });
-  const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState(tableValue.searchTerm);
+  const [sorting, setSorting] = useState({
+    field: tableValue.sortType,
+    ascending: true,
+  });
+  const navigate = useNavigate();
   const [collection, setCollection] = useState(
     cloneDeep(allData.slice(0, countPerPage))
   );
   const searchData = useRef(
     throttle((val) => {
       const query = val.toLowerCase();
-      setCurrentPage(1);
+      setTableValue({ ...tableValue, pageNumber: 1 });
       const data = cloneDeep(
         allData
           .filter((item) => item.name.toLowerCase().indexOf(query) > -1)
@@ -43,12 +49,12 @@ const UserTable = () => {
   );
 
   useEffect(() => {
-    if (!value) {
+    if (!searchTerm) {
       updatePage(1);
     } else {
-      searchData.current(value);
+      searchData.current(searchTerm);
     }
-  }, [value]);
+  }, [searchTerm]);
 
   useEffect(() => {
     const collectionCopy = [...allData];
@@ -60,11 +66,15 @@ const UserTable = () => {
         ? sortedCurrentUsers.slice(0, countPerPage)
         : sortedCurrentUsers.reverse().slice(0, countPerPage)
     );
-    setCurrentPage(1);
-  }, [sorting]);
+    setTableValue({ ...tableValue, pageNumber: 1 });
+  }, [sorting.field]);
+
+  useEffect(() => {
+    updatePage(tableValue.pageNumber);
+  }, []);
 
   const updatePage = (p: number) => {
-    setCurrentPage(p);
+    setTableValue({ ...tableValue, pageNumber: p });
     const to = countPerPage * p;
     const from = to - countPerPage;
     const collectionCopy = [...allData];
@@ -75,10 +85,13 @@ const UserTable = () => {
   };
 
   const handleAction = (data: User) => {
-    console.log(data, "data");
+    navigate(`${window.location.pathname}/` + "user-detail", {
+      state: { data },
+    });
   };
   const sortAction = (type: string, ascending: boolean) => {
-    setSorting({ field: type, ascending: ascending });
+    type !== "actions" && setSorting({ field: type, ascending: ascending });
+    type !== "actions" && setTableValue({ ...tableValue, sortType: type });
   };
   const tableRows = (rowData: { key: User; index: number }) => {
     const { key, index } = rowData;
@@ -113,32 +126,41 @@ const UserTable = () => {
         }
         key={index}
       >
-        {title}
+        {title}{" "}
+        {sorting.ascending && sorting.field === title.toLocaleLowerCase() && (
+          <span>&#8593;</span>
+        )}
+        {!sorting.ascending && sorting.field === title.toLocaleLowerCase() && (
+          <span>&#8595;</span>
+        )}
       </td>
     ));
   };
 
   return (
-    <div className="table-block">
+    <div className="container">
+      <div className="page-label">User List Page</div>
       <div className="search">
         <input
           placeholder="Search by name"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-      <table>
-        <thead>
-          <tr>{headRow()}</tr>
-        </thead>
-        <tbody className="trhover">{tableData()}</tbody>
-      </table>
-      <Pagination
-        pageSize={countPerPage}
-        onChange={updatePage}
-        current={currentPage}
-        total={allData.length}
-      />
+      <div className="table-block">
+        <table>
+          <thead>
+            <tr>{headRow()}</tr>
+          </thead>
+          <tbody className="trhover">{tableData()}</tbody>
+        </table>
+        <Pagination
+          pageSize={countPerPage}
+          onChange={updatePage}
+          current={tableValue.pageNumber}
+          total={allData.length}
+        />
+      </div>
     </div>
   );
 };
