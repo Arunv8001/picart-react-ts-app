@@ -20,7 +20,9 @@ interface User {
   name: string;
   email: string;
   age: string;
-  action: () => void;
+  address: string;
+  familyName: string;
+  profilePicture: string;
 }
 
 const UserTable = () => {
@@ -57,17 +59,14 @@ const UserTable = () => {
   }, [searchTerm]);
 
   useEffect(() => {
-    const collectionCopy = [...allData];
-    const sortedCurrentUsers = collectionCopy.sort((a, b) => {
-      return a[sorting.field]?.localeCompare(b[sorting.field]);
-    });
+    const sortedUsers = sortCurrentUsers();
     setCollection(
       sorting.ascending
-        ? sortedCurrentUsers.slice(0, countPerPage)
-        : sortedCurrentUsers.reverse().slice(0, countPerPage)
+        ? sortedUsers.slice(0, countPerPage)
+        : sortedUsers.reverse().slice(0, countPerPage)
     );
     setTableValue({ ...tableValue, pageNumber: 1 });
-  }, [sorting.field]);
+  }, [sorting]);
 
   useEffect(() => {
     updatePage(tableValue.pageNumber);
@@ -77,11 +76,17 @@ const UserTable = () => {
     setTableValue({ ...tableValue, pageNumber: p });
     const to = countPerPage * p;
     const from = to - countPerPage;
+    const sortedUsers = sortCurrentUsers();
+    setCollection(cloneDeep(sortedUsers.slice(from, to)));
+  };
+
+  const sortCurrentUsers = () => {
     const collectionCopy = [...allData];
-    const sortedCurrentUsers = collectionCopy.sort((a, b) => {
-      return a[sorting.field]?.localeCompare(b[sorting.field]);
+    return collectionCopy.sort((a, b) => {
+      return a[sorting.field as keyof User]?.localeCompare(
+        b[sorting.field as keyof User]
+      );
     });
-    setCollection(cloneDeep(sortedCurrentUsers.slice(from, to)));
   };
 
   const handleAction = (data: User) => {
@@ -96,16 +101,16 @@ const UserTable = () => {
   const tableRows = (rowData: { key: User; index: number }) => {
     const { key, index } = rowData;
     const tableCell = Object.keys(tableHead);
-    const columnData = tableCell.map((keyD, i) => {
+    const columnData = tableCell.map((type, i) => {
       return (
         <td key={i}>
           {""}
-          {keyD === "action" ? (
+          {type === "action" ? (
             <button className="view-action" onClick={() => handleAction(key)}>
               View
             </button>
           ) : (
-            key[keyD]
+            key[type as keyof User]
           )}{" "}
         </td>
       );
