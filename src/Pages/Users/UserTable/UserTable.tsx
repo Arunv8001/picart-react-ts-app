@@ -25,16 +25,21 @@ interface User {
   profilePicture: string;
 }
 
+interface IsortType {
+  field: string;
+  ascending: boolean;
+}
+
 const UserTable = () => {
   const { tableValue, setTableValue } = useContext(UserContext);
   const countPerPage = 10;
-  const [searchTerm, setSearchTerm] = useState(tableValue.searchTerm);
-  const [sorting, setSorting] = useState({
+  const [searchTerm, setSearchTerm] = useState<string>(tableValue.searchTerm);
+  const [sorting, setSorting] = useState<IsortType>({
     field: tableValue.sortType,
     ascending: true,
   });
   const navigate = useNavigate();
-  const [collection, setCollection] = useState(
+  const [collection, setCollection] = useState<User[]>(
     cloneDeep(allData.slice(0, countPerPage))
   );
   const searchData = useRef(
@@ -157,14 +162,24 @@ const UserTable = () => {
           <thead>
             <tr>{headRow()}</tr>
           </thead>
-          <tbody className="trhover">{tableData()}</tbody>
+          <tbody className="trhover">
+            {collection.length === 0 ? (
+              <tr className="empty-cell">
+                <td colSpan={4}>No result found</td>
+              </tr>
+            ) : (
+              tableData()
+            )}
+          </tbody>
         </table>
-        <Pagination
-          pageSize={countPerPage}
-          onChange={updatePage}
-          current={tableValue.pageNumber}
-          total={allData.length}
-        />
+        {collection.length > 1 && (
+          <Pagination
+            pageSize={countPerPage}
+            onChange={updatePage}
+            current={tableValue.pageNumber}
+            total={allData.length}
+          />
+        )}
       </div>
     </div>
   );

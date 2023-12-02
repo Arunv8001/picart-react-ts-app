@@ -24,3 +24,10 @@
     min-width: 250px;
     background-color: #d9d9d9;
   }
+
+  
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .card {
+      max-width: max-content;
+    }
+    }
