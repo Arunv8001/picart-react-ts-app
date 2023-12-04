@@ -2,6 +2,7 @@ import { useState } from "react";
 import HeaderComponent from "../../Components/HeaderComponent/HeaderComponent";
 import "./Home.css";
 import TodoList from "./Tasks/TodoList";
+import { APIURL } from "../../Utils/constants";
 
 const Home = () => {
   const [taskName, setTaskName] = useState("");
@@ -25,7 +26,7 @@ const Home = () => {
   };
 
   const addTodo = () => {
-    fetch("https://jsonplaceholder.typicode.com/todos", {
+    fetch(APIURL + "todos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

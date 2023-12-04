@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import TodoItem from "./TodoItem/TodoItem";
 import "./TodoList.css";
+import { APIURL } from "../../../Utils/constants";
 
 interface Props {
   isRefresh: boolean;
@@ -21,7 +22,7 @@ const TodoList = (props: Props) => {
 
   useEffect(() => {
     if (isRefresh) {
-      fetch("https://jsonplaceholder.typicode.com/todos?userId=1")
+      fetch(APIURL + "todos?userId=1")
         .then((res) => {
           return res.json();
         })
