@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { CoveredImage } from "./../../../Components/OptimisedImage/OptimisedImage";
 import "./UserDetail.css";
+import { User } from "../UserContext";
 
 const UserDetail = () => {
   const location = useLocation();
   const navigation = useNavigate();
-  const [profileDetail, setProfileDetail] = useState({
+  const [profileDetail, setProfileDetail] = useState<User>({
     address: "",
     age: "",
     email: "",

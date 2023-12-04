@@ -6,6 +6,15 @@ export interface IUserContext {
   sortType: string;
 }
 
+export interface User {
+  name: string;
+  email: string;
+  age: string;
+  address: string;
+  familyName: string;
+  profilePicture: string;
+}
+
 export interface ITableInfo {
   tableValue: IUserContext;
   setTableValue: Dispatch<SetStateAction<IUserContext>>;

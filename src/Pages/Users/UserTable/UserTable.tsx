@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useContext } from "react";
-import { UserContext } from "./../UserContext";
+import { User, UserContext } from "./../UserContext";
 import cloneDeep from "lodash/cloneDeep";
 import throttle from "lodash/throttle";
 import Pagination from "rc-pagination";
@@ -16,23 +16,14 @@ const tableHead = {
   action: "Actions",
 };
 
-interface User {
-  name: string;
-  email: string;
-  age: string;
-  address: string;
-  familyName: string;
-  profilePicture: string;
-}
-
 interface IsortType {
   field: string;
   ascending: boolean;
 }
 
 const UserTable = () => {
-  const { tableValue, setTableValue } = useContext(UserContext);
   const countPerPage = 10;
+  const { tableValue, setTableValue } = useContext(UserContext);
   const [searchTerm, setSearchTerm] = useState<string>(tableValue.searchTerm);
   const [sorting, setSorting] = useState<IsortType>({
     field: tableValue.sortType,
@@ -77,14 +68,23 @@ const UserTable = () => {
     updatePage(tableValue.pageNumber);
   }, []);
 
-  const updatePage = (p: number) => {
-    setTableValue({ ...tableValue, pageNumber: p });
-    const to = countPerPage * p;
+  /**
+   *
+   * @param pageNumber is a number type and update table page number
+   */
+
+  const updatePage = (pageNumber: number) => {
+    setTableValue({ ...tableValue, pageNumber });
+    const to = countPerPage * pageNumber;
     const from = to - countPerPage;
     const sortedUsers = sortCurrentUsers();
     setCollection(cloneDeep(sortedUsers.slice(from, to)));
   };
 
+  /**
+   *
+   * @returns This function returns sorted collection w.r.t sort type
+   */
   const sortCurrentUsers = () => {
     const collectionCopy = [...allData];
     return collectionCopy.sort((a, b) => {
@@ -94,15 +94,32 @@ const UserTable = () => {
     });
   };
 
-  const handleAction = (data: User) => {
+  /**
+   *
+   * @param data is Object type which include user detail.
+   * This FUnction will navigate to detail page of user
+   */
+  const handleViewAction = (data: User) => {
     navigate(`${window.location.pathname}/` + "user-detail", {
       state: { data },
     });
   };
+
+  /**
+   *
+   * @param type is string type and accept sort type i.e "name, email and age"
+   * @param ascending is boolean type
+   */
   const sortAction = (type: string, ascending: boolean) => {
     type !== "actions" && setSorting({ field: type, ascending: ascending });
     type !== "actions" && setTableValue({ ...tableValue, sortType: type });
   };
+
+  /**
+   *
+   * @param rowData is object which include data of users like "name, familyName, email, address and age"
+   * @returns table row data
+   */
   const tableRows = (rowData: { key: User; index: number }) => {
     const { key, index } = rowData;
     const tableCell = Object.keys(tableHead);
@@ -111,7 +128,10 @@ const UserTable = () => {
         <td key={i}>
           {""}
           {type === "action" ? (
-            <button className="view-action" onClick={() => handleAction(key)}>
+            <button
+              className="view-action"
+              onClick={() => handleViewAction(key)}
+            >
               View
             </button>
           ) : (
@@ -123,11 +143,17 @@ const UserTable = () => {
 
     return <tr key={index}>{columnData}</tr>;
   };
-
+  /**
+   *
+   * @returns is array of object which include data of users
+   */
   const tableData = () => {
     return collection.map((key, index) => tableRows({ key, index }));
   };
 
+  /**
+   * This function returns table header
+   */
   const headRow = () => {
     return Object.values(tableHead).map((title, index) => (
       <td

@@ -16,6 +16,11 @@ interface Todo {
 
 const TodoItem = (props: Props) => {
   const { todo, setRefresh, snackBarHandler } = props;
+
+  /**
+   * This function calls an API which delete task from the list.
+   * Important: resource will not be really delete on the server but it will be faked as if.
+   */
   const deleteTodo = () => {
     fetch(APIURL + "todos/" + todo.id, {
       method: "DELETE",
