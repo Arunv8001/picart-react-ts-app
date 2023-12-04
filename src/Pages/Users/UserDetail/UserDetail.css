@@ -1,0 +1,33 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 50%;
+    margin: auto;
+    text-align: center;
+    font-family: Roboto;
+  }
+
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+
+  .card > img {
+    width: 100%;
+  }
+  
+  .nav-link {
+    display: flex;
+    padding: 24px;
+    justify-content: center;
+  }
+  .back-button {
+    min-width: 250px;
+    background-color: #d9d9d9;
+  }
+
+  
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .card {
+      max-width: max-content;
+    }
+    }

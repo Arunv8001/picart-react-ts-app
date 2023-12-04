@@ -1,0 +1,6 @@
+import { Suspense } from "react";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const suspenseWrapper = (component: any) => (
+  <Suspense fallback={"Loading..."}>{component}</Suspense>
+);
