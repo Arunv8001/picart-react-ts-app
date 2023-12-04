@@ -6,15 +6,23 @@ import { APIURL } from "../../Utils/constants";
 
 const Home = () => {
   const [taskName, setTaskName] = useState("");
-
   const [isRefresh, setIsRefresh] = useState<boolean>(true);
   const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
   const [addDelete, setAddDelete] = useState<string>("");
 
+  /**
+   *
+   * @param status is boolean value accept only true/false value to refresh the todo list
+   */
   const setRefresh = (status: boolean) => {
     setIsRefresh(status);
   };
 
+  /**
+   *
+   * @param type is string type which accepts only "added" or "deleted" values
+   * @param taskName is string type task name
+   */
   const snackBarHandler = (type: string, taskName: string) => {
     setShowSnackBar(true);
     setAddDelete(type);
@@ -24,7 +32,10 @@ const Home = () => {
       setTaskName("");
     }, 3000);
   };
-
+  /**
+   * This function is API call which update Add task
+   * Important: resource will not be really add on the server but it will be faked as if.
+   */
   const addTodo = () => {
     fetch(APIURL + "todos", {
       method: "POST",
