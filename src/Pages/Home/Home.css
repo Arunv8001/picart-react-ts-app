@@ -1,0 +1,111 @@
+/* Style the header */
+.todo-header {
+    background-color: #14877c;
+    padding: 8px 16px 16px 16px;
+    color: white;
+    text-align: center;
+    margin: 16px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+
+  .info {
+    text-align: left;
+    padding: 4px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  /* Clear floats after the header */
+.todo-header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Style the input */
+input.todo-text-field {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+    background: #f3f3f3;
+  }
+
+  input.todo-text-field:disabled {
+    opacity: .5;
+  }
+
+  input:focus-visible {
+    outline: #fff;
+  }
+  
+  /* Style the "Add" button */
+  .add-button {
+    padding: 10px;
+    width: 25%;
+    background: #0d5e56;
+    color: #f3f3f3;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+  }
+  
+  .add-button:hover {
+    background-color: #186e65;
+    border: 1px solid #57520094;
+    
+  }
+  .add-button:disabled {
+    opacity: .5;
+  }
+
+  /* The snackbar - position it at the bottom and in the middle of the screen */
+.snackbar {
+    visibility: hidden; 
+    min-width: 250px; 
+    margin-left: -125px; 
+    background-color: #333; 
+    color: #fff; 
+    text-align: center; 
+    border-radius: 2px; 
+    padding: 16px; 
+    position: fixed; 
+    z-index: 1; 
+    left: 50%; 
+    bottom: 30px; 
+  }
+  
+  .snackbar.show {
+    visibility: visible; 
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }

@@ -1,0 +1,32 @@
+/* Remove margins and padding from the list */
+.todo-list {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style the list items */
+  .todo-list li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    font-size: 18px;
+    list-style-type: none;
+    transition: 0.2s;
+  
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Set all odd list items to a different color (zebra-stripes) */
+  .todo-list li:nth-child(odd) {
+    background: #e0e0e0;
+  }
+  
+  /* Darker background-color on hover */
+  .todo-list li:hover {
+    background: #f3f3f3;
+  }
+  

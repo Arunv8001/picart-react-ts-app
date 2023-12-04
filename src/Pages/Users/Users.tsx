@@ -1,7 +1,26 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import HeaderComponent from "../../Components/HeaderComponent/HeaderComponent";
 import { ITableInfo, IUserContext, UserContext } from "./UserContext";
+import { motion } from "framer-motion";
+
+const pageVariants = {
+  initial: {
+    opacity: 0,
+  },
+  in: {
+    opacity: 1,
+  },
+  out: {
+    opacity: 0,
+  },
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "linear",
+  duration: 0.5,
+};
 
 const Users = () => {
   const [tableValue, setTableValue] = useState<IUserContext>({
@@ -10,11 +29,20 @@ const Users = () => {
     sortType: "",
   });
   const value: ITableInfo = { tableValue, setTableValue };
+  const { pathname } = useLocation();
   return (
     <>
       <HeaderComponent />
       <UserContext.Provider value={value}>
-        <Outlet />
+        <motion.div
+          key={pathname}
+          initial="initial"
+          animate="in"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
+          <Outlet />
+        </motion.div>
       </UserContext.Provider>
     </>
   );

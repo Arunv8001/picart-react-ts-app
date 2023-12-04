@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: Roboto;
     text-decoration: none;
     list-style: none;
   }
@@ -11,9 +11,10 @@
     position: sticky;
     top: 0;
     width: 100%;
-    box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
-    background-color: #151418;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: #14877c;
     z-index: 1;
+    color: #fff;
   }
   
   nav {
@@ -26,8 +27,7 @@
   .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #fff;
-    padding: 15px;
+    padding: 0;
     height: fit-content;
   }
 
@@ -71,7 +71,7 @@
   @media only screen and (max-width: 950px) {
     .menu {
       flex-direction: column;
-      background-color: #151418;
+      background-color: #0d5e56;
       align-items: start;
       position: absolute;
       top: 90px;
