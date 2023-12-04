@@ -1,3 +1,4 @@
+import { APIURL } from "../../../../Utils/constants";
 import "./TodoItem.css";
 
 interface Props {
@@ -16,7 +17,7 @@ interface Todo {
 const TodoItem = (props: Props) => {
   const { todo, setRefresh, snackBarHandler } = props;
   const deleteTodo = () => {
-    fetch("https://jsonplaceholder.typicode.com/todos/" + todo.id, {
+    fetch(APIURL + "todos/" + todo.id, {
       method: "DELETE",
     }).then(() => {
       setRefresh(true);
