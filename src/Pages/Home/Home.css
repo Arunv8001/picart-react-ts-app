@@ -1,4 +1,8 @@
 /* Style the header */
+.container {
+  width: auto;
+
+}
 .todo-header {
     background-color: #14877c;
     padding: 8px 16px 16px 16px;

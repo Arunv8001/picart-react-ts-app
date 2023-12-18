@@ -4,8 +4,8 @@
 
 # SPA Features:
 
-● The application should have at least 3 routes/pages: Home, User List Page and User Details Page.
-● User List Page:
+● The application should have at least 3 routes/pages: Home, Users and User Details Page.
+● Users:
 
 1.  Display a list of users with the following columns: Name, Email, Age, and Actions.
 2.  Pagination: Limit to 10 users per page.
@@ -13,7 +13,7 @@
 4.  Search: Include a search bar to search users by name.
     ● User Details Page:
 5.  Display detailed information of a selected user: Full Name, Email, Age, Address, and Profile Picture.
-6.  Provide a back button to return to the user list page.
+6.  Provide a back button to return to the Users.
     ● The Home page should showcase some dynamic content fetched
 
 # React + TypeScript + Vite

@@ -31,7 +31,7 @@ const UserDetail = () => {
   return (
     <div>
       <div className="nav-link">
-        <h1>User Detail Card</h1>
+        <h1>User Profile</h1>
       </div>
 
       <div className="card">
