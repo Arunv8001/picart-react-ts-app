@@ -41,7 +41,7 @@ const TodoList = (props: Props) => {
 
   return (
     <ul className="todo-list">
-      <h1>To-do List</h1>
+      <div className="page-header">To-do List</div>
       {todos.length === 0 && <h1>Loading...</h1>}
       {todos.map((todo: Todo) => (
         <TodoItem

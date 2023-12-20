@@ -4,7 +4,7 @@ const HeaderComponent = () => {
   return (
     <header className="header">
       <nav>
-        <div className="logo">To-do Application</div>
+        <div>To-do Application</div>
         <input type="checkbox" id="menu-toggle" />
         <label htmlFor="menu-toggle" className="menu-icon">
           &#9776;

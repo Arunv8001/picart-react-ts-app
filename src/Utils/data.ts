@@ -5,7 +5,7 @@ export const allData = [
       email: "maciblanchard@gmail.com",
       age: "44",
       address: "Zimmer 759 Bensberger Str. 31b, Klein Ahmetland, SL 60780",
-      profilePicture: "https://randomuser.me/api/portraits/lego/3.jpg"
+      profilePicture: "3.jpg"
     },
     {
       name: "Marilyn Young",
@@ -13,7 +13,7 @@ export const allData = [
       email: "marilynyoung@gmail.com",
       age: "36",
       address: "Apt. 544 Kölner Str. 64, Schäfferstadt, NW 24528",
-      profilePicture: "https://randomuser.me/api/portraits/lego/0.jpg"
+      profilePicture: "0.jpg"
     },
     {
       name: "Genevieve Booker",
@@ -21,7 +21,7 @@ export const allData = [
       email: "genevievebooker@gmail.com",
       age: "32",
       address: "9 OG Am Wasserturm 95c, Süd Titusburg, TH 10578",
-      profilePicture: "https://randomuser.me/api/portraits/lego/8.jpg"
+      profilePicture: "8.jpg"
     },
     {
       name: "Rosalyn Elliott",
@@ -29,7 +29,7 @@ export const allData = [
       email: "rosalynelliott@gmail.com",
       age: "33",
       address: "1 OG Am Hemmelrather Hof 783, Victoriahagen, BE 18041",
-      profilePicture: "https://randomuser.me/api/portraits/lego/5.jpg"
+      profilePicture: "5.jpg"
     },
     {
       name: "Stevie Shepard",
@@ -37,7 +37,7 @@ export const allData = [
       email: "stevieshepard@gmail.com",
       age: "21",
       address: "Heymannstr. 16b, Schultzheim, ST 10354",
-      profilePicture: "https://randomuser.me/api/portraits/lego/7.jpg"
+      profilePicture: "7.jpg"
     },
     {
       name: "Nadia Small",
@@ -45,7 +45,7 @@ export const allData = [
       email: "nadiasmall@gmail.com",
       age: "36",
       address: "Weinhäuser Str. 44a, Koobdorf, BB 03192",
-      profilePicture: "https://randomuser.me/api/portraits/lego/2.jpg"
+      profilePicture: "2.jpg"
     },
     {
       name: "Paulina Knight",
@@ -53,7 +53,7 @@ export const allData = [
       email: "paulinaknight@gmail.com",
       age: "42",
       address: "Apt. 142 Saarstr. 8, Heidelmannberg, TH 38269",
-      profilePicture: "https://randomuser.me/api/portraits/lego/7.jpg"
+      profilePicture: "7.jpg"
     },
     {
       name: "Analia Briggs",
@@ -61,7 +61,7 @@ export const allData = [
       email: "analiabriggs@gmail.com",
       age: "25",
       address: "2 OG Pommernstr. 75, Alt Victor, ST 66061",
-      profilePicture: "https://randomuser.me/api/portraits/lego/6.jpg"
+      profilePicture: "6.jpg"
     },
     {
       name: "Gianna Walton",
@@ -69,7 +69,7 @@ export const allData = [
       email: "giannawalton@gmail.com",
       age: "32",
       address: "Böcklerstr. 55, Steinmetzland, HH 23116",
-      profilePicture: "https://randomuser.me/api/portraits/lego/5.jpg"
+      profilePicture: "5.jpg"
     },
     {
       name: "Joy Fuller",
@@ -77,7 +77,7 @@ export const allData = [
       email: "joyfuller@gmail.com",
       age: "26",
       address: "Apt. 409 Salamanderweg 23a, Bastianstadt, HE 11804",
-      profilePicture: "https://randomuser.me/api/portraits/lego/6.jpg"
+      profilePicture: "6.jpg"
     },
     {
       name: "Calliope Grimes",
@@ -85,7 +85,7 @@ export const allData = [
       email: "calliopegrimes@gmail.com",
       age: "31",
       address: "Auf dem Herberg 50b, Jansenfeld, ST 49385",
-      profilePicture: "https://randomuser.me/api/portraits/lego/0.jpg"
+      profilePicture: "0.jpg"
     },
     {
       name: "Amora Best",
@@ -93,7 +93,7 @@ export const allData = [
       email: "amorabest@gmail.com",
       age: "28",
       address: "Zimmer 673 Alexanderstr. 42c, Groß Jari, ST 72627",
-      profilePicture: "https://randomuser.me/api/portraits/lego/1.jpg"
+      profilePicture: "1.jpg"
     },
     {
       name: "Keily Pittman",
@@ -101,7 +101,7 @@ export const allData = [
       email: "keilypittman@gmail.com",
       age: "35",
       address: "7 OG Von-Brentano-Str. 41, Fusenigfeld, BY 96523",
-      profilePicture: "https://randomuser.me/api/portraits/lego/2.jpg"
+      profilePicture: "2.jpg"
     },
     {
       name: "Grace Reed",
@@ -109,7 +109,7 @@ export const allData = [
       email: "gracereed@gmail.com",
       age: "23",
       address: "Sonderburger Str. 70c, Süd Adam, SN 97632",
-      profilePicture: "https://randomuser.me/api/portraits/lego/3.jpg"
+      profilePicture: "3.jpg"
     },
     {
       name: "Violette Farmer",
@@ -117,7 +117,7 @@ export const allData = [
       email: "violettefarmer@gmail.com",
       age: "33",
       address: "Weidfeldstr. 9, Striezelscheid, NI 83396",
-      profilePicture: "https://randomuser.me/api/portraits/lego/4.jpg"
+      profilePicture: "4.jpg"
     },
     {
       name: "Elaine Maynard",
@@ -125,7 +125,7 @@ export const allData = [
       email: "elainemaynard@gmail.com",
       age: "41",
       address: "3 OG Mühlenweg 650, Salihdorf, NW 56851",
-      profilePicture: "https://randomuser.me/api/portraits/lego/6.jpg"
+      profilePicture: "6.jpg"
     },
     {
       name: "Zelda Serrano",
@@ -133,7 +133,7 @@ export const allData = [
       email: "zeldaserrano@gmail.com",
       age: "36",
       address: "Eifgenstr. 93c, Süd Bennettscheid, BW 09470",
-      profilePicture: "https://randomuser.me/api/portraits/lego/7.jpg"
+      profilePicture: "7.jpg"
     },
     {
       name: "Lorelei Shelton",
@@ -141,7 +141,7 @@ export const allData = [
       email: "loreleishelton@gmail.com",
       age: "38",
       address: "Käthe-Kollwitz-Str. 45b, Aleascheid, ST 84442",
-      profilePicture: "https://randomuser.me/api/portraits/lego/8.jpg"
+      profilePicture: "8.jpg"
     },
     {
       name: "Leilany Sweeney",
@@ -149,7 +149,7 @@ export const allData = [
       email: "leilanysweeney@gmail.com",
       age: "31",
       address: "9 OG Am Neuenhof 3, Maxinehagen, NI 03958",
-      profilePicture: "https://randomuser.me/api/portraits/lego/0.jpg"
+      profilePicture: "0.jpg"
     },
     {
       name: "Ellison Weiss",
@@ -157,7 +157,7 @@ export const allData = [
       email: "ellisonweiss@gmail.com",
       age: "26",
       address: "Händelstr. 16a, West Medine, RP 46222",
-      profilePicture: "https://randomuser.me/api/portraits/lego/2.jpg"
+      profilePicture: "2.jpg"
     },
     {
       name: "Ember O’Donnell",
@@ -165,7 +165,7 @@ export const allData = [
       email: "emberdonnell@gmail.com",
       age: "51",
       address: "Wuppertalstr. 33b, Feldheim, NI 30838",
-      profilePicture: "https://randomuser.me/api/portraits/lego/3.jpg"
+      profilePicture: "3.jpg"
     },
     {
       name: "Daphne Novak",
@@ -173,7 +173,7 @@ export const allData = [
       email: "daphnenovak@gmail.com",
       age: "29",
       address: "Steglitzer Str. 30c, Falkfeld, HE 50919",
-      profilePicture: "https://randomuser.me/api/portraits/lego/4.jpg"
+      profilePicture: "4.jpg"
     },
     {
       name: "Olive Bentley",
@@ -181,7 +181,7 @@ export const allData = [
       email: "olivebentley@gmail.com",
       age: "40",
       address: "Apt. 403 Kölner Gasse 318, Grasseburg, HE 02575",
-      profilePicture: "https://randomuser.me/api/portraits/lego/5.jpg"
+      profilePicture: "5.jpg"
     },
     {
       name: "Hailey Maxwell",
@@ -189,7 +189,7 @@ export const allData = [
       email: "haileymaxwell@gmail.com",
       age: "26",
       address: "Ankerweg 61, Mariamhagen, SL 90410",
-      profilePicture: "https://randomuser.me/api/portraits/lego/6.jpg"
+      profilePicture: "6.jpg"
     },
     {
       name: "Lila Washington",
@@ -197,7 +197,7 @@ export const allData = [
       email: "lilawashington@gmail.com",
       age: "34",
       address: "Ankerweg 6, Groß Clara, HH 52847",
-      profilePicture: "https://randomuser.me/api/portraits/lego/2.jpg"
+      profilePicture: "2.jpg"
     }
   ];
   

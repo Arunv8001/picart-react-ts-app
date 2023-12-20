@@ -53,7 +53,7 @@ const Home = () => {
       <HeaderComponent />
       <div className="container">
         <div className="todo-header">
-          <p className="info">Enter user task and click add button</p>
+          <p>Enter user task and click add button</p>
           <input
             className="todo-text-field"
             placeholder="Enter Task"

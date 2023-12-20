@@ -24,7 +24,7 @@
     padding: 20px 30px;
   }
   
-  .logo {
+  nav > div {
     font-size: 24px;
     font-weight: bold;
     padding: 0;

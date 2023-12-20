@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { CoveredImage } from "./../../../Components/OptimisedImage/OptimisedImage";
 import "./UserDetail.css";
 import { User } from "../UserContext";
 
@@ -35,12 +34,7 @@ const UserDetail = () => {
       </div>
 
       <div className="card">
-        <CoveredImage
-          altText="ProfileImage"
-          srcUrl={profileDetail.profilePicture}
-          width={"100%"}
-          height={250}
-        />
+        <img className="lazy" alt={`${profileDetail.name} ${profileDetail.familyName}`} src={"../../src/assets/"+profileDetail.profilePicture}  width={"75%"} />
         <h2>
           {profileDetail.name} {profileDetail.familyName}
         </h2>
