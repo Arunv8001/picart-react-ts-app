@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { lazy, useState } from "react";
 import HeaderComponent from "../../Components/HeaderComponent/HeaderComponent";
 import "./Home.css";
-import TodoList from "./Tasks/TodoList";
 import { APIURL } from "../../Utils/constants";
+
+const TodoList = lazy(() => import("./Tasks/TodoList"))
 
 const Home = () => {
   const [taskName, setTaskName] = useState("");

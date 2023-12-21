@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import TodoItem from "./TodoItem/TodoItem";
-import "./TodoList.css";
+import { useEffect, useState, lazy } from "react";
+const TodoItem = lazy(() => import("./TodoItem/TodoItem"))
 import { APIURL } from "../../../Utils/constants";
+import "./TodoList.css";
+
 
 interface Props {
   isRefresh: boolean;
@@ -43,7 +44,7 @@ const TodoList = (props: Props) => {
     <ul className="todo-list">
       <div className="page-header">To-do List</div>
       {todos.length === 0 && <h1>Loading...</h1>}
-      {todos.map((todo: Todo) => (
+      {todos.length > 0 && todos.map((todo: Todo) => (
         <TodoItem
           todo={todo}
           key={todo.id}

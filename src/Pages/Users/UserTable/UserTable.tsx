@@ -174,8 +174,8 @@ const UserTable = () => {
   };
 
   return (
-    <div className="container">
-      <div className="page-label">Users</div>
+    <div>
+      <div className="page-header">Users</div>
       <div className="search">
         <input
           placeholder="Search by name"

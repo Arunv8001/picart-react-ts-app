@@ -34,7 +34,7 @@ const UserDetail = () => {
       </div>
 
       <div className="card">
-        <img className="lazy" alt={`${profileDetail.name} ${profileDetail.familyName}`} src={"../../src/assets/"+profileDetail.profilePicture}  width={"75%"} />
+        <img className="lazy" alt={`${profileDetail.name} ${profileDetail.familyName}`} src={"../../src/assets/"+profileDetail.profilePicture+"?tr=w-400,h-200"}  width={"75%"} height={"400px"}/>
         <h2>
           {profileDetail.name} {profileDetail.familyName}
         </h2>

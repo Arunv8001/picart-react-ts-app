@@ -97,6 +97,7 @@ button:focus-visible {
   }
   .table-block {
     overflow-x: scroll;
+    padding: 0 16px;
   }
   }
   
